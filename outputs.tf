@@ -1,3 +1,7 @@
+output "route_filters_id" {
+  description = "Map of id values across all route_filters, keyed the same as var.route_filters"
+  value       = { for k, v in azurerm_route_filter.route_filters : k => v.id }
+}
 output "route_filters_location" {
   description = "Map of location values across all route_filters, keyed the same as var.route_filters"
   value       = { for k, v in azurerm_route_filter.route_filters : k => v.location }
