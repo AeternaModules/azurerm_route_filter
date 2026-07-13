@@ -7,7 +7,7 @@ resource "azurerm_route_filter" "route_filters" {
   tags                = each.value.tags
 
   dynamic "rule" {
-    for_each = each.value.rule != null ? [each.value.rule] : []
+    for_each = each.value.rule != null ? each.value.rule : []
     content {
       access      = rule.value.access
       communities = rule.value.communities
